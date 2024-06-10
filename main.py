@@ -39,7 +39,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     <title>LagerDetect</title>
 </head>
 <body>
-    <h1>Es gibt ungefär {count} flaschen :D</h1>
+    <h1>Es gibt ungefär {count} flaschen</h1>
 </body>
 </html>
 """
