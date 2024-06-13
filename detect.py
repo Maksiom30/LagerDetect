@@ -3,7 +3,6 @@ import numpy as np
 
 def detect_bottles(image):
     # Bild einlesen
-    #image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Bildvorverarbeitung
