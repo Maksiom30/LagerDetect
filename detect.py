@@ -3,6 +3,7 @@ import numpy as np
 
 def detect_bottles(image):
     # Bild einlesen
+    #image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Bildvorverarbeitung
@@ -29,6 +30,7 @@ if __name__ == '__main__':
     cap = cv2.VideoCapture(0)
     while True:
         _, frame = cap.read()
+        print(frame)
         img = detect_bottles(frame)
         cv2.imshow("Image", img)
         if cv2.waitKey(1) == ord("q"):

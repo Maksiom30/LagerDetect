@@ -1,7 +1,7 @@
 import http.server
 import socketserver
 import mkPic
-import LagerDetect.detect as detect
+import detect
 import cv2 as cv
 
 # Define a custom request handler by subclassing http.server.SimpleHTTPRequestHandler
@@ -47,12 +47,17 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(str.encode(html))
         
 
-PORT = 8000
+def main():
+    PORT = 8000
 
-# Create the HTTP server and bind it to the specified port with the custom handler
-socketserver.TCPServer.allow_reuse_address = True
-with socketserver.TCPServer(("", PORT), CustomHandler) as httpd:
-    print(f"Serving HTTP on port {PORT}")
-    
-    # Serve the HTTP server until interrupted
-    httpd.serve_forever()
+    # Create the HTTP server and bind it to the specified port with the custom handler
+    socketserver.TCPServer.allow_reuse_address = True
+    with socketserver.TCPServer(("", PORT), CustomHandler) as httpd:
+        print(f"Serving HTTP on port {PORT}")
+        
+        # Serve the HTTP server until interrupted
+        httpd.serve_forever()
+
+
+if __name__ == '__main__':
+    main()
